@@ -66,7 +66,7 @@ function createDefaultWindow() {
   });
   win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
 
-  win.webContents.send("Bim Bim Boum Badaboum")
+  win.webContents.send('message', "Bim Bim Boum Badaboum")
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
