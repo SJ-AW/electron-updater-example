@@ -1,7 +1,7 @@
 // Copyright (c) The LHTML team
 // See LICENSE for details.
 
-const {dialog, app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
+const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 
@@ -13,10 +13,8 @@ const {autoUpdater} = require("electron-updater");
 // This logging setup is not required for auto-updates to work,
 // but it sure makes debugging easier :)
 //-------------------------------------------------------------------
-let updater
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
-autoUpdater.autoDownload = false
 log.info('App starting...');
 
 //-------------------------------------------------------------------
@@ -67,8 +65,6 @@ function createDefaultWindow() {
     win = null;
   });
   win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
-
-  sendStatusToWindow('message', "Bim Bim Boum Badaboum...")
   return win;
 }
 autoUpdater.on('checking-for-update', () => {
@@ -100,14 +96,6 @@ app.on('window-all-closed', () => {
   app.quit();
 });
 
-// export this to MenuItem click callback
-function checkForUpdates (menuItem, focusedWindow, event) {
-  updater = menuItem
-  updater.enabled = false
-  autoUpdater.checkForUpdates()
-}
-module.exports.checkForUpdates = checkForUpdates
-
 //-------------------------------------------------------------------
 // Auto updates
 //
@@ -134,7 +122,7 @@ autoUpdater.on('update-downloaded', (ev, info) => {
   // In your application, you don't need to wait 5 seconds.
   // You could call autoUpdater.quitAndInstall(); immediately
   setTimeout(function() {
-    autoUpdater.quitAndInstall();  
+    autoUpdater.quitAndInstall();
   }, 5000)
 })
 
