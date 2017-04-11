@@ -129,3 +129,5 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
+
+autoUpdater.setFeedURL('/download/latest/win32')
