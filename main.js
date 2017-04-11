@@ -78,6 +78,7 @@ autoUpdater.on('update-not-available', (ev, info) => {
 })
 autoUpdater.on('error', (ev, err) => {
   sendStatusToWindow('Error in auto-updater.');
+  sendStatusToWindow(err);
 })
 autoUpdater.on('download-progress', (ev, progressObj) => {
   sendStatusToWindow('Download progress...');
@@ -130,4 +131,4 @@ app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
 
-autoUpdater.setFeedURL('http://127.0.0.1:10500/download/latest/win32')
+autoUpdater.setFeedURL('http://127.0.0.1:10500/update/win32')
