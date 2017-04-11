@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -13,6 +13,9 @@
     "electron-updater": "^1.4.2"
   },
   "build": {
+    "squirrelWindows": {
+      "remoteReleases": true
+    },
     "appId": "com.github.SJ-AW.electronupdaterexample",
     "mac": {
       "category": "your.app.category.type",
