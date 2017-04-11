@@ -130,4 +130,4 @@ app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
 
-autoUpdater.setFeedURL('/download/latest/win32')
+autoUpdater.setFeedURL('http://127.0.0.1:10500/download/latest/win32')
