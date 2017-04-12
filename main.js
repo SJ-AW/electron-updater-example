@@ -131,4 +131,5 @@ app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
 
+// Passe par notre proxy pour télécharger la dernière version
 autoUpdater.setFeedURL('http://127.0.0.1:10500//download/latest');
