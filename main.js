@@ -131,4 +131,4 @@ app.on('ready', function()  {
   autoUpdater.checkForUpdates();
 });
 
-autoUpdater.setFeedURL('http://127.0.0.1:10500/update/win32')
+autoUpdater.setFeedURL('http://127.0.0.1:10500/update/win32/:version/RELEASES');
